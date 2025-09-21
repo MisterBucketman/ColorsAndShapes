@@ -1,0 +1,34 @@
+# Godot 4+ specific ignores
+# --- Godot generated / editor files ---
+.import/                # generated import cache (do NOT commit)
+.godot/                 # editor-specific local settings (ignore user-specific)
+.mono/                  # mono build files (C#)
+*.import
+
+# --- Build / export artifacts (you usually don't want to store these) ---
+*.pck
+*.zip
+*.apk
+*.aab
+*.exe
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# --- C# / Mono build outputs ---
+bin/
+obj/
+*.sln
+*.csproj
+*.user
+*.userprefs
+*.suo
+
+# --- Temporary or log files ---
+*.log
+*.tmp
+*.bak
