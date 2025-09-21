@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuat84uisdwqm"]
+
+[ext_resource type="Script" path="res://rotate.gd" id="1_ej3oy"]
+[ext_resource type="Texture2D" uid="uid://gx6i4g0qx4sq" path="res://assets/background.png" id="2_a0s4o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wefyr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_odnis"]
+a = Vector2(-117, -114)
+b = Vector2(593, 575)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqq8a"]
+size = Vector2(76, 70)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i3eee"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ej3oy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_a0s4o")
+
+[node name="CentralLine" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -3)
+rotation = -3.14159
+physics_material_override = SubResource("PhysicsMaterial_wefyr")
+
+[node name="Sprite2D" type="Sprite2D" parent="CentralLine"]
+
+[node name="Line2D" type="Line2D" parent="CentralLine"]
+points = PackedVector2Array(-3, -3, 482, 468)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CentralLine"]
+shape = SubResource("SegmentShape2D_odnis")
+
+[node name="Shape" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shape"]
+position = Vector2(-578, -557)
+shape = SubResource("RectangleShape2D_xqq8a")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Shape"]
+position = Vector2(-578, -557)
+rotation = 3.14159
+scale = Vector2(71.9178, 66.8822)
+mesh = SubResource("QuadMesh_i3eee")
+
+[node name="Polygon2D" type="Polygon2D" parent="Shape"]
+position = Vector2(31, -26)
+color = Color(0, 0, 0.788235, 1)
+polygon = PackedVector2Array(-582, -560, -643, -563, -635, -508, -572, -498)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Circle" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(96, -78)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Circle"]
+position = Vector2(-578, -557)
+shape = SubResource("RectangleShape2D_xqq8a")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Circle"]
+position = Vector2(-578, -557)
+rotation = 3.14159
+scale = Vector2(71.9178, 66.8822)
+mesh = SubResource("QuadMesh_i3eee")
+
+[node name="Polygon2D" type="Polygon2D" parent="Circle"]
+position = Vector2(31, -26)
+color = Color(0, 0, 0.788235, 1)
+polygon = PackedVector2Array(-588, -534, -597, -555, -622, -554, -638, -537, -622, -513, -595, -511)
